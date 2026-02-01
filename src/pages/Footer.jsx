@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -20,12 +21,9 @@ const Footer = () => {
                 Sustain<span className="text-[#bfa174]">Rx</span>
               </h1>
               <div className="text-center flex flex-col">
-                <a href="/signin" className="mb-2 hover:text-white mt-1">
+                <Link to="/login" className="mb-1 text-xl hover:text-white mt-4">
                   Sign In
-                </a>
-                <a href="/signup" className="mb-2 hover:text-white">
-                  Sign Up
-                </a>
+                </Link>
               </div>
             </div>
           </div>

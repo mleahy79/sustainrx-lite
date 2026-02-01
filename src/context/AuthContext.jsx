@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         setGithubToken(credential.oauthAccessToken);
         localStorage.setItem("githubToken", credential.oauthAccessToken);
       }
-      return { success: true, user: result.user };
+      return { success: true, user: result.user }
     } catch (error) {
       console.error("GitHub sign-in error:", error);
       return { success: false, error: error.message };
@@ -57,5 +57,11 @@ export const AuthProvider = ({ children }) => {
     logout,
     isAuthenticated: !!user,
   };
+    console.log("user:", value.user);
+    console.log("providerData:", value.user?.providerData);
+    console.log("reloadUserInfo:", value.user?.reloadUserInfo);
+
+
+  
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
