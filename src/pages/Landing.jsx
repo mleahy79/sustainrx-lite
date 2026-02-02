@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAudioFeedback } from "../context/AudioFeedbackContext";
 import logotbg from "../assets/logotbg.png";
 
 const Landing = () => {
   const { playClick } = useAudioFeedback();
+  const [repoUrl, setRepoUrl] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (repoUrl.trim()) {
+      playClick();
+      navigate(`/analyze?repo=${encodeURIComponent(repoUrl.trim())}`);
+    }
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -22,24 +33,23 @@ const Landing = () => {
           SustainRx is dedicated to promoting sustainable practices in your code
           base.
         </p>
-        <form //onSubmit={handleSubmit}
+        <form onSubmit={handleSubmit}
         className="max-w-2xl mx-auto" aria-label="Repository analysis form">
-          <div className="flex gap-4 mt-35">
+          <div className="flex flex-col gap-4 items-center self-center md:flex-row md:gap-4 mt-35">
             <label htmlFor="repo-url" className="sr-only">GitHub Repository URL</label>
             <input
               id="repo-url"
               type="text"
-             // value={repoUrl}
-             // onChange={(e) => setRepoUrl(e.target.value)}
+              value={repoUrl}
+              onChange={(e) => setRepoUrl(e.target.value)}
               placeholder="Enter GitHub repository URL"
               aria-required="true"
               className="p-2 rounded border border-gray-300 w-150 text-gray-200 bg-neutral-800/50 placeholder-gray-500"
             ></input>
             <button
             type="submit"
-            onClick={playClick}
             aria-label="Start repository checkup"
-            className="bg-[#178582] min-w-[160px] flex hover:bg-[#0a1828] text-gray-300 font-bold py-3 px-6 rounded transition-colors duration-300">
+            className="bg-[#178582] min-w-[162px] max-w-[162px] border-1 border-gray-700 flex hover:bg-neutral-800 hover:cursor-pointer text-gray-300 font-bold py-3 px-6 rounded transition-colors duration-300">
               Start Checkup
             </button>
           </div>

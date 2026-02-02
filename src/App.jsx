@@ -7,6 +7,7 @@ import Login from './pages/Login.jsx'
 import About from './pages/About.jsx'
 import Profile from './pages/Profile.jsx'
 import Faq from './pages/Faq.jsx'
+import Analyze from './pages/Analyze.jsx'
 
 function App() {
   return <div>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<><About /><Footer /></>} />
         <Route path="/profile" element={<><Profile /><Footer /></>} />
         <Route path="/faq" element={<><Faq /><Footer /></>} />
+        <Route path="/analyze" element={<><Analyze /><Footer /></>} />
       </Routes>
     </main>
     </div>
