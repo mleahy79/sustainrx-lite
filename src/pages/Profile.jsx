@@ -20,7 +20,7 @@ const Profile = () => {
         </h1>
         {user ? (
           <div>
-            <img src={photoURL} className="w-18 h-18 self-center mb-4 rounded-full mx-auto" alt="Profile" />
+            <img src={photoURL} className="w-18 h-18 self-center mb-4 rounded-full mx-auto" alt={`${screenName || "User"} profile photo`} />
             <p className="text-xl mx-20 font-bold text-[#bfa174] mt-12 mb-4">
              <span className="text-gray-400">Welcome,</span> {screenName || email}
             </p>
@@ -28,11 +28,11 @@ const Profile = () => {
             <p className="text-lg mx-20 text-[#bfa174]">
              <span className="text-gray-400">Member Since:</span> {memberSince}
             </p>
-            <a href="/">
+            <a href="/" aria-label="Navigate to home">
               <img
                 src={`${import.meta.env.BASE_URL}logorxdark.png`}
                 className="w-40 h-auto mx-auto block mt-20"
-                alt="logo img"
+                alt=""
               />
             </a>
           </div>

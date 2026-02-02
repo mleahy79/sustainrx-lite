@@ -1,13 +1,17 @@
 import React from "react";
+import { useAudioFeedback } from "../context/AudioFeedbackContext";
 import logotbg from "../assets/logotbg.png";
 
 const Landing = () => {
+  const { playClick } = useAudioFeedback();
+
   return (
     <div className="relative min-h-screen">
       <img
         src={logotbg}
         className="mx-auto mt-10 opacity-80 w-70 h-70"
-        alt="Logo Background"
+        alt=""
+        aria-hidden="true"
       />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center mt-10 w-full">
         <h1 className="text-4xl text-gray-400 font-bold text-center mt-20">
@@ -18,18 +22,23 @@ const Landing = () => {
           SustainRx is dedicated to promoting sustainable practices in your code
           base.
         </p>
-        <form //onSubmit={handleSubmit} 
-        className="max-w-2xl mx-auto">
+        <form //onSubmit={handleSubmit}
+        className="max-w-2xl mx-auto" aria-label="Repository analysis form">
           <div className="flex gap-4 mt-35">
+            <label htmlFor="repo-url" className="sr-only">GitHub Repository URL</label>
             <input
+              id="repo-url"
               type="text"
              // value={repoUrl}
              // onChange={(e) => setRepoUrl(e.target.value)}
               placeholder="Enter GitHub repository URL"
+              aria-required="true"
               className="p-2 rounded border border-gray-300 w-150 text-gray-200 bg-neutral-800/50 placeholder-gray-500"
             ></input>
-            <button 
+            <button
             type="submit"
+            onClick={playClick}
+            aria-label="Start repository checkup"
             className="bg-[#178582] min-w-[160px] flex hover:bg-[#0a1828] text-gray-300 font-bold py-3 px-6 rounded transition-colors duration-300">
               Start Checkup
             </button>

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useAudioFeedback } from "../context/AudioFeedbackContext";
 import logotbg from "../assets/logotbg.png";
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { signInWithGitHub, isAuthenticated, loading } = useAuth();
+  const { playClick } = useAudioFeedback();
 
   // Redirect away from login only after auth state has loaded
   React.useEffect(() => {
@@ -56,7 +58,7 @@ const Login = () => {
           {/* Error Message */}
 
           {error && (
-            <div className="mb-4 p-3 bg-red-900/30 border border-red-500 rounded-lg">
+            <div role="alert" aria-live="assertive" className="mb-4 p-3 bg-red-900/30 border border-red-500 rounded-lg">
               <p className="text-red-300 text-sm">{error}</p>
             </div>
           )}
@@ -64,18 +66,19 @@ const Login = () => {
           {/* GitHub OAuth Button */}
 
           <button
-            onClick={handleGitHubLogin}
+            onClick={() => { playClick(); handleGitHubLogin(); }}
             disabled={isLoading}
+            aria-label={isLoading ? "Signing in, please wait" : "Sign in with GitHub"}
+            aria-busy={isLoading}
             className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-[#24292e] text-white font-semibold rounded-lg hover:bg-[#2f363d] transition-colors disabled:opacity-50"
           >
             {isLoading ? (
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" aria-hidden="true"></div>
             ) : (
               <>
-                {/* GitHub Icon */}
-
                 <svg
                   className="w-5 h-5"
+                  aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,6 +110,7 @@ const Login = () => {
 
           <Link
             to="/"
+            onClick={playClick}
             className="block w-full text-center px-4 py-3 border border-[#178582] text-[#178582] font-semibold rounded-lg
              hover:bg-[#178582] hover:text-white transition-colors"
           >

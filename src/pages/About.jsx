@@ -21,9 +21,8 @@ const About = () => {
           </p>
         </div>
 
-        {/* Mission */}
-        <div className="bg-neutral-800/20 backdrop-blur-lg p-8 rounded-lg border border-neutral-600 shadow-lg shadow-black/50 mb-8">
-          <h2 className="text-2xl font-bold text-[#bfa174] mb-4">
+        <section aria-labelledby="mission-heading" className="bg-neutral-800/20 backdrop-blur-lg p-8 rounded-lg border border-neutral-600 shadow-lg shadow-black/50 mb-8">
+          <h2 id="mission-heading" className="text-2xl font-bold text-[#bfa174] mb-4">
             Our Mission
           </h2>
           <p className="text-gray-400 leading-relaxed">
@@ -34,7 +33,7 @@ const About = () => {
             repository's health and a practical treatment plan to keep their
             code sustainable for the long term.
           </p>
-        </div>
+        </section>
 
         {/* How It Works */}
         <div className="bg-neutral-800/20 backdrop-blur-lg p-8 rounded-lg border border-neutral-600 shadow-lg shadow-black/50 mb-8">
@@ -81,14 +80,14 @@ const About = () => {
           </h2>
           <ul className="space-y-3 text-gray-400">
             <li className="flex items-start gap-3">
-              <span className="text-[#178582] font-bold mt-0.5">+</span>
+              <span className="text-[#178582] font-bold mt-0.5" aria-hidden="true">+</span>
               <span>
                 <strong className="text-gray-300">Commit Health</strong> —
                 Frequency, size, and consistency of changes over time.
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#178582] font-bold mt-0.5">+</span>
+              <span className="text-[#178582] font-bold mt-0.5" aria-hidden="true">+</span>
               <span>
                 <strong className="text-gray-300">Chronic Hotspots</strong> —
                 Files that are changed repeatedly, signaling deeper structural
@@ -96,14 +95,14 @@ const About = () => {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#178582] font-bold mt-0.5">+</span>
+              <span className="text-[#178582] font-bold mt-0.5" aria-hidden="true">+</span>
               <span>
                 <strong className="text-gray-300">Code Debt Indicators</strong>{" "}
                 — Patterns that suggest accumulating maintenance burden.
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#178582] font-bold mt-0.5">+</span>
+              <span className="text-[#178582] font-bold mt-0.5" aria-hidden="true">+</span>
               <span>
                 <strong className="text-gray-300">Contributor Patterns</strong>{" "}
                 — How work is distributed across the team and over time.

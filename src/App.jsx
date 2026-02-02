@@ -10,15 +10,20 @@ import Faq from './pages/Faq.jsx'
 
 function App() {
   return <div>
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:p-4 focus:bg-[#178582] focus:text-white focus:font-bold">
+      Skip to main content
+    </a>
     <div className='bg-radial-[at_bottom] from-[#178582] via-neutral-800 to-[#0a1828] min-h-screen overflow-hidden'>
     <Nav />
-    <Routes>
-      <Route path="/" element={<><Landing /><Footer /></>} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/about" element={<><About /><Footer /></>} />
-      <Route path="/profile" element={<><Profile /><Footer /></>} />
-      <Route path="/faq" element={<><Faq /><Footer /></>} />
-    </Routes>
+    <main id="main-content">
+      <Routes>
+        <Route path="/" element={<><Landing /><Footer /></>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<><About /><Footer /></>} />
+        <Route path="/profile" element={<><Profile /><Footer /></>} />
+        <Route path="/faq" element={<><Faq /><Footer /></>} />
+      </Routes>
+    </main>
     </div>
   </div>
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useAudioFeedback } from "../context/AudioFeedbackContext";
 
 const faqData = [
   {
@@ -46,6 +46,18 @@ const faqData = [
 
 const Faq = () => {
     const [activeQuestion, setActiveQuestion] = useState(null);
+    const { playAccordionOpen, playAccordionClose } = useAudioFeedback();
+
+  const handleToggle = (index) => {
+    const isOpening = activeQuestion !== index;
+    setActiveQuestion(isOpening ? index : null);
+    if (isOpening) {
+      playAccordionOpen();
+    } else {
+      playAccordionClose();
+    }
+  };
+
   return (
     <div className="w-screen min-h-screen flex justify-center">
         <div className="w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] py-10">
@@ -53,12 +65,19 @@ const Faq = () => {
     {faqData.map((item, index) => (
         <div key={index} className="mb-4">
           <button
+            id={`faq-button-${index}`}
+            aria-expanded={activeQuestion === index}
+            aria-controls={`faq-panel-${index}`}
             className="w-full text-left p-4 bg-neutral-700/20 border-gray-700 border-1 backdrop-blur-lg rounded-lg hover:bg-gray-800 transition-colors duration-300 shadow-lg shadow-black/50 ease-in-out"
-            onClick={() => setActiveQuestion(activeQuestion === index ? null : index)}
+            onClick={() => handleToggle(index)}
           >
             <h2 className="text-lg font-semibold text-[#178582]">{item.question}</h2>
           </button>
-          <div className={`overflow-hidden transition-all duration-400 ease-in-out ${
+          <div
+            id={`faq-panel-${index}`}
+            role="region"
+            aria-labelledby={`faq-button-${index}`}
+            className={`overflow-hidden transition-all duration-400 ease-in-out ${
             activeQuestion === index ? "max-h-60 mt-2" : "max-h-0"
           }`}>
             <div className="p-4 bg-gray-800 rounded-b-lg shadow-lg shadow-black/50">
