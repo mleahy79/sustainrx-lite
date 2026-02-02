@@ -11,7 +11,7 @@ const Landing = () => {
       />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center mt-10 w-full">
         <h1 className="text-4xl text-gray-400 font-bold text-center mt-20">
-          Welcome to <span className="text-[#178582]">Suatain</span>
+          Welcome to <span className="text-[#178582]">Sustain</span>
           <span className="text-[#bfa174]">Rx</span>
         </h1>
         <p className="text-gray-400 text-center  text-lg font-bold mt-4 mx-20">
@@ -25,7 +25,7 @@ const Landing = () => {
               type="text"
              // value={repoUrl}
              // onChange={(e) => setRepoUrl(e.target.value)}
-              placeholder="Enter your repository URL"
+              placeholder="Enter GitHub repository URL"
               className="p-2 rounded border border-gray-300 w-150 placeholder-gray-500"
             ></input>
             <button 

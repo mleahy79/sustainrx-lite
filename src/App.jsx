@@ -6,6 +6,7 @@ import Footer from './pages/Footer.jsx'
 import Login from './pages/Login.jsx'
 import About from './pages/About.jsx'
 import Profile from './pages/Profile.jsx'
+import Faq from './pages/Faq.jsx'
 
 function App() {
   return <div>
@@ -16,6 +17,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<><About /><Footer /></>} />
       <Route path="/profile" element={<><Profile /><Footer /></>} />
+      <Route path="/faq" element={<><Faq /><Footer /></>} />
     </Routes>
     </div>
   </div>

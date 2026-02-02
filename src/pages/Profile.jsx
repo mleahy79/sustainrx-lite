@@ -18,9 +18,9 @@ const Profile = () => {
         <h1 className="text-3xl text-center font-bold mb-8 text-gray-400">
           Profile
         </h1>
-        <img src={photoURL} className="w-18 h-18 self-center mb-4 rounded-full" alt="Profile" />
         {user ? (
           <div>
+            <img src={photoURL} className="w-18 h-18 self-center mb-4 rounded-full mx-auto" alt="Profile" />
             <p className="text-xl mx-20 font-bold text-[#bfa174] mt-12 mb-4">
              <span className="text-gray-400">Welcome,</span> {screenName || email}
             </p>

@@ -122,7 +122,7 @@ const About = () => {
               (tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 border border-[#178582] text-[#178582] rounded-lg text-sm font-semibold"
+                  className="px-4 py-2 border border-gray-400 text-gray-400 rounded-lg text-sm font-semibold"
                 >
                   {tech}
                 </span>
