@@ -26,7 +26,7 @@ const Landing = () => {
              // value={repoUrl}
              // onChange={(e) => setRepoUrl(e.target.value)}
               placeholder="Enter GitHub repository URL"
-              className="p-2 rounded border border-gray-300 w-150 placeholder-gray-500"
+              className="p-2 rounded border border-gray-300 w-150 text-gray-200 bg-neutral-800/50 placeholder-gray-500"
             ></input>
             <button 
             type="submit"
