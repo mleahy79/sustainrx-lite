@@ -30,7 +30,7 @@ const Profile = () => {
             </p>
             <a href="/">
               <img
-                src="/logorxdark.png"
+                src={`${import.meta.env.BASE_URL}logorxdark.png`}
                 className="w-40 h-auto mx-auto block mt-20"
                 alt="logo img"
               />
